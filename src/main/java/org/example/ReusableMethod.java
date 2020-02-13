@@ -47,7 +47,7 @@ public class ReusableMethod
     public void waitForClickable(By by ,int time)
     {
         WebDriverWait waitClickable = new WebDriverWait(driver,time);
-        waitClickable.until (ExpectedConditions.visibilityOfElementLocated(by));
+        waitClickable.until (ExpectedConditions.elementToBeClickable(by));
     }
     //4) creating method for text to be visible with two parameter
     public void waitForVisible(By by , int time)
@@ -59,7 +59,7 @@ public class ReusableMethod
     public void waitForElementIsPresent(By by , int time)
     {
         WebDriverWait waitPresent = new WebDriverWait(driver,time);
-        waitPresent.until (ExpectedConditions.visibilityOfElementLocated(by));
+        waitPresent.until (ExpectedConditions.presenceOfElementLocated(by));
     }
     // 6) creating parameterized method for clicking an element
     public void clickOnElement(By by)
@@ -114,7 +114,7 @@ public class ReusableMethod
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-       // waitForClickable(By.cssSelector("input#gender-female"),40);
+      //waitForClickable(By.cssSelector("input#gender-female"),50);
         //using above method i am not able to print first name always so used thread.sleep
         clickOnElement(By.cssSelector("input#gender-female"));
         sendKey(By.cssSelector("input#FirstName"),"Tarjani");
